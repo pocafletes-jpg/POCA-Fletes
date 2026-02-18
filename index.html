@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POCA FLETES</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#000000" />
+</head>
+<body style="font-family: Arial; margin:0; background:#f5f5f5;">
+  <header style="background:black; color:white; padding:15px; text-align:center;">
+    <h1>POCA FLETES</h1>
+    <p>Encontrá tu flete en toda Argentina</p>
+  </header>
+
+  <section style="padding:20px;">
+    <h2>Publicar Servicio</h2>
+    <input placeholder="Nombre" id="nombre" /><br><br>
+    <input placeholder="Ciudad" id="ciudad" /><br><br>
+    <input placeholder="Precio desde $" id="precio" /><br><br>
+    <button onclick="publicar()">Publicar</button>
+  </section>
+
+  <section style="padding:20px;">
+    <h2>Fletes Disponibles</h2>
+    <div id="lista"></div>
+  </section>
+
+<script>
+function publicar(){
+  const nombre = document.getElementById("nombre").value;
+  const ciudad = document.getElementById("ciudad").value;
+  const precio = document.getElementById("precio").value;
+
+  const card = `
+    <div style="background:white;padding:10px;margin-bottom:10px;">
+      <strong>${nombre}</strong><br>
+      Ciudad: ${ciudad}<br>
+      Desde: $${precio}<br>
+      <a href="https://wa.me/5490000000000" target="_blank">
+        Contactar por WhatsApp
+      </a>
+    </div>
+  `;
+
+  document.getElementById("lista").innerHTML += card;
+}
+</script>
+
+</body>
+</html>
